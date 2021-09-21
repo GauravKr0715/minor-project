@@ -9,10 +9,7 @@ function App() {
   return (
     <div>
     <Router>
-      
-      
       <Switch>
-     
        <Route path="/" exact component={Slide}/>
     
        
