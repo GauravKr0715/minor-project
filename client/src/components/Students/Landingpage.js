@@ -96,10 +96,10 @@ function Landingpage() {
           <div className="Nav1">
                <div className="Opt1">
                    <ul style={{listStyleType:"none"}}>
-                      <Link to="/"  style={{textDecoration:"none",color:"black"}}> <li>My Profile</li></Link>
-                      <Link  to="/" style={{textDecoration:"none",color:"black"}} > <li>My Attendence</li></Link>
-                      <Link to="/" style={{textDecoration:"none",color:"black"}}> <li>Time Table</li></Link>
-                      <Link to="/" style={{textDecoration:"none",color:"black"}}><li>Online Classes</li></Link>
+                      <Link to="/Myprofile"  style={{textDecoration:"none",color:"black"}}> <li>My Profile</li></Link>
+                      <Link  to="/Assignments" style={{textDecoration:"none",color:"black"}} > <li>My Attendence</li></Link>
+                      <Link to="/Timetable" style={{textDecoration:"none",color:"black"}}> <li>Time Table</li></Link>
+                      <Link to="/Onlineclasses" style={{textDecoration:"none",color:"black"}}><li>Online Classes</li></Link>
                    </ul>
                </div>
           </div>
@@ -108,10 +108,10 @@ function Landingpage() {
                <div className="Opt2">
                <ul style={{listStyleType:"none"}}>
                        
-               <Link to="/" style={{textDecoration:"none",color:"black"}}>  <li>Assignments</li></Link>
-               <Link to="/" style={{textDecoration:"none",color:"black"}}>  <li>Notes</li></Link>
-               <Link to="/" style={{textDecoration:"none",color:"black"}}>  <li>Tests</li></Link>
-               <Link to="/" style={{textDecoration:"none",color:"black"}}>  <li>Queries</li></Link>
+               <Link to="/Assignments" style={{textDecoration:"none",color:"black"}}>  <li>Assignments</li></Link>
+               <Link to="/Notes" style={{textDecoration:"none",color:"black"}}>  <li>Notes</li></Link>
+               <Link to="/Tests" style={{textDecoration:"none",color:"black"}}>  <li>Tests</li></Link>
+               <Link to="/Queries" style={{textDecoration:"none",color:"black"}}>  <li>Queries</li></Link>
                    </ul>
                </div>
           </div>
