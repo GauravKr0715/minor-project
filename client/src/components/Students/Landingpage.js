@@ -6,13 +6,7 @@ function Landingpage() {
     return (
         <div>
         <div className="container">
-           <div className="name">
-               <p className="name1">Student <br />
-                  Akshaya R</p>
-           </div>
-           <div className="logout">
-              <p className="name2">Logout <i class="fas fa-sign-out-alt"></i></p>
-           </div>
+         
           <table className="tab">
             <thead>
          <tr>
@@ -21,7 +15,7 @@ function Landingpage() {
          </th>
          <th><h4>10:05-11:00</h4>
          </th>
-         <th style={{backgroundColor:"rgb(170, 170, 59)"}}><h4>            </h4>
+         <th style={{backgroundImage:"linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)"}}><h4>            </h4>
          </th>
          <th><h4>11:30-12:25</h4>
          </th>
@@ -35,7 +29,7 @@ function Landingpage() {
          </thead>
          <tbody>
          <tr>
-         <td><p style={{fontSize:20}}>Schedule</p></td>
+         <td><p style={{fontSize:20 ,fontWeight:"bold"}}>Schedule</p></td>
          <td>
             <p>ADBA <br></br>
                Lecture<br></br>
@@ -48,8 +42,8 @@ function Landingpage() {
                Dr. Meenakshi 
             </p>
             </td>
-            <td style={{backgroundColor:"rgb(170, 170, 59)"}}>
-            <p > <br></br>
+            <td style={{backgroundImage:"linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)", color:"black"}}>
+            <p > 
                Lunch Break<br></br>
                
             </p>
@@ -83,41 +77,10 @@ function Landingpage() {
 </tbody>
           </table>
 
-          <div className="tl">
-               <div className="con">
-                 <p>
-            
-                 
-</p>
-               </div>
-          </div>
-
-        
-          <div className="Nav1">
-               <div className="Opt1">
-                   <ul style={{listStyleType:"none"}}>
-                      <Link to="/Myprofile"  style={{textDecoration:"none",color:"black"}}> <li>My Profile</li></Link>
-                      <Link  to="/Assignments" style={{textDecoration:"none",color:"black"}} > <li>My Attendence</li></Link>
-                      <Link to="/Timetable" style={{textDecoration:"none",color:"black"}}> <li>Time Table</li></Link>
-                      <Link to="/Onlineclasses" style={{textDecoration:"none",color:"black"}}><li>Online Classes</li></Link>
-                   </ul>
-               </div>
-          </div>
-
-          <div className="Nav2">
-               <div className="Opt2">
-               <ul style={{listStyleType:"none"}}>
-                       
-               <Link to="/Assignments" style={{textDecoration:"none",color:"black"}}>  <li>Assignments</li></Link>
-               <Link to="/Notes" style={{textDecoration:"none",color:"black"}}>  <li>Notes</li></Link>
-               <Link to="/Tests" style={{textDecoration:"none",color:"black"}}>  <li>Tests</li></Link>
-               <Link to="/Queries" style={{textDecoration:"none",color:"black"}}>  <li>Queries</li></Link>
-                   </ul>
-               </div>
-          </div>
+       
 
         </div>
-
+  
         </div>
     )
 }
