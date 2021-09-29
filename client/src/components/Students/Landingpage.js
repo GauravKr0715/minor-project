@@ -35,7 +35,7 @@ function Landingpage() {
          </thead>
          <tbody>
          <tr>
-         <td><p style={{fontSize:20}}>Schedule</p></td>
+         <td><p style={{fontSize:20}}>{new Date().toLocaleDateString("default", { weekday: 'long' }) }</p></td>
          <td>
             <p>ADBA <br></br>
                Lecture<br></br>
