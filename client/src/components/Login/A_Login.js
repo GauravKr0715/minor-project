@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class AdminLogin extends Component {
     render() {
+      
         return (
             <div className="base-container">
                 <div className="header">Login</div>
