@@ -1,5 +1,6 @@
 
 import React from 'react'
+// import ReactDOM from 'react-dom'
 import Slide from "./components/Slide"
 import Landingpage from "./components/Students/Landingpage"
 import StudentLogin from './components/Login/S_Login';
@@ -13,6 +14,13 @@ import Notes from "./components/Students/Notes"
 import Queries from "./components/Students/Queries/chatBody/ChatBody"
 
 import {BrowserRouter as Router , Switch , Route} from "react-router-dom"
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 
 function App() {
   return (
