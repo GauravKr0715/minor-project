@@ -1,11 +1,18 @@
 import React from 'react'
 import "./Landingpage.css"
-import { Link } from "react-router-dom";
+import Sidebar from './sidebar';
+/* import { Link } from "react-router-dom";
+import logo from "./img/logo.jpg"; */
+
 function Landingpage() {
     
     return (
+      
         <div>
+        
         <div className="container">
+       
+        <Sidebar/>
          
           <table className="tab">
             <thead>
@@ -15,7 +22,7 @@ function Landingpage() {
          </th>
          <th><h4>10:05-11:00</h4>
          </th>
-         <th style={{backgroundImage:"linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)"}}><h4>            </h4>
+         <th style={{backgroundColor:"rgb(161, 161, 161)"}}><h4>            </h4>
          </th>
          <th><h4>11:30-12:25</h4>
          </th>
@@ -42,7 +49,7 @@ function Landingpage() {
                Dr. Meenakshi 
             </p>
             </td>
-            <td style={{backgroundImage:"linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)", color:"black"}}>
+            <td style={{backgroundColor:"rgb(161, 161, 161)", color:"black",fontWeight:"bold"}}>
             <p > 
                Lunch Break<br></br>
                
@@ -77,7 +84,9 @@ function Landingpage() {
 </tbody>
           </table>
 
-       
+         <div className="time">
+            
+         </div>
 
         </div>
   

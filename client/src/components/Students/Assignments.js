@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import Sidebar from './sidebar';
 
 function Assignments() {
     return (
         <div>
-            <Link to="/Landingpage"><h2>Back</h2></Link>
+            <Sidebar/>
         </div>
     )
 }
