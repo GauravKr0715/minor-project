@@ -143,7 +143,7 @@ export default class ChatContent extends Component {
               value={this.state.msg}
             />
             <button className="btnSendMsg" id="sendMsgBtn">
-              <i className="fa fa-paper-plane"></i>
+            <i class="fas fa-hand-point-right"></i>
             </button>
           </div>
         </div>

@@ -2,15 +2,15 @@
 import React from 'react'
 // import ReactDOM from 'react-dom'
 import Slide from "./components/Slide"
-import Landingpage from "./components/Students/Landingpage"
+import Landingpage from "./components/Students/Landingpage/Landingpage"
 import StudentLogin from './components/Login/S_Login';
 import FacultyLogin from './components/Login/F_Login';
 import AdminLogin from './components/Login/A_Login';
-import Assignments from "./components/Students/Assignments"
-import Myattendence from "./components/Students/Myattendence"
-import Myprofile from "./components/Students/Myprofile"
-import Timetable from "./components/Students/Timetable"
-import Notes from "./components/Students/Notes"
+import Assignments from "./components/Students/Assignments/Assignments"
+import Myattendence from "./components/Students/Myattendence/Myattendence"
+import Myprofile from "./components/Students/Myprofile/Myprofile"
+import Timetable from "./components/Students/Timetable/Timetable"
+import Notes from "./components/Students/Notes/Notes"
 import Queries from "./components/Students/Queries/chatBody/ChatBody"
 
 import {BrowserRouter as Router , Switch , Route} from "react-router-dom"

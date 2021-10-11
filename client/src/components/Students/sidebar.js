@@ -1,7 +1,7 @@
 import React from 'react'
-import "./Landingpage.css"
+import "../Students/Landingpage/Landingpage.css"
 import { Link } from "react-router-dom";
-import logo from "./img/logo.jpg";
+import logo from "../../assets/image/logo.jpg";
 import { useState } from "react"
 
 function Sidebar() {

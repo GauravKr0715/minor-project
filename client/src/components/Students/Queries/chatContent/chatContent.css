@@ -26,7 +26,7 @@
   color: #000;
 }
 .content__body {
-  max-height: calc(100vh - calc(100vh / 2));
+  max-height: calc(100vh - calc(100vh / 3));
   overflow: auto;
 }
 .chat__item {
@@ -65,8 +65,8 @@
   padding: 1px;
 }
 .chat__item__content {
-  background-color: #4462ff;
-  color: #fff;
+  background-color: #d4d8ec;
+  color: rgb(10, 10, 10);
   padding: 15px;
   border-radius: 10px 10px 0 10px;
   max-width: 50%;
@@ -79,7 +79,7 @@
 }
 .chat__item__content .chat__meta span {
   font-size: 14px;
-  color: #8693d3;
+  color: #616161;
   user-select: none;
 }
 .chat__msg {

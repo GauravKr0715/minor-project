@@ -1,25 +1,18 @@
 import React from "react";
 import "./Login.css";
-import logo from "/Users/pooja/Desktop/M_Project/minor-project/client/src/assets/image/t.png";
-import col_logo from "/Users/pooja/Desktop/M_Project/minor-project/client/src/assets/image/logo.jpg"
+import col_logo from "../../assets/image/logo.jpg"
 // import icon from "../assets/image/s_logo.jpeg";
 // import { Link } from "react-router-dom";
 // import image1 from "../assets/image/s.png";
+import bg from "../../assets/image/b3.jpg"
 
 export default function FacultyLogin() {
     return (
-        <div>
-      <div className="top-nav">
-            
-      <img className="col_logo" src={col_logo} alt="" />
-    </div>
-
-<div class="logo">
-<img className="icon" src={logo} alt="" />
-</div> 
+        <div >
+        <img src={bg} alt="" className="body" />
       <div class="form-container">
         
-
+      <img src={col_logo} alt="ui-element"  className="image"/> 
        
             <h1>FACULTY LOGIN</h1>
         
