@@ -1,0 +1,24 @@
+{"level":"info","message":"Server running at PORT","service":"user-service"}
+{"level":"info","message":"database status","service":"user-service"}
+{"level":"info","message":"Connected to DB","service":"user-service"}
+2021-09-23T05:44:28.502Z [right meow!] info: Server running at PORT
+2021-09-23T05:44:31.513Z [right meow!] info: database status
+2021-09-23T05:44:31.513Z [right meow!] info: Connected to DB
+2021-09-23T05:45:35.094Z [right meow!] info: Server running at PORT
+2021-09-23T05:45:38.392Z [right meow!] info: database status
+2021-09-23T05:45:38.393Z [right meow!] info: Connected to DB
+2021-09-23T05:46:06.602Z [right meow!] info: Server running at PORT: 5000
+2021-09-23T05:46:09.743Z [right meow!] info: database status
+2021-09-23T05:46:09.744Z [right meow!] info: Connected to DB
+2021-09-23T05:46:20.228Z info: Server running at PORT: 5000
+2021-09-23T05:46:23.416Z info: database status
+2021-09-23T05:46:23.417Z info: Connected to DB
+2021-09-23T05:47:39.910Z info: Server running at PORT: 5000
+2021-09-23T05:47:43.136Z info: database status
+2021-09-23T05:47:43.137Z info: Connected to DB
+2021-09-23T05:47:50.800Z info: Server running at PORT: 5000
+2021-09-23T05:47:54.069Z info: database status
+2021-09-23T05:47:54.070Z info: Connected to DB
+2021-09-23T05:48:55.400Z info: Server running at PORT: 5000
+2021-09-23T05:48:58.160Z info: database status
+2021-09-23T05:48:58.161Z info: Connected to DB
