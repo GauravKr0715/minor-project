@@ -8,6 +8,9 @@ const morgan = require('morgan');
 
 const logger = require('./utils/logger');
 
+// local imports
+const routes = require('./routes');
+
 mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
   logger.info(`database status: ${mongoose.connection.readyState}`);
   logger.info("Connected to DB");
@@ -16,6 +19,9 @@ mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true, useUnifiedTopology
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
+
+// feeding local middlewares
+app.use('/api', routes);
 
 app.get('/', (req, res) => {
   res.status(200).send('hello')

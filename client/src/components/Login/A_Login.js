@@ -11,14 +11,14 @@ export default function AdminLogin() {
         <div >
         <img src={bg} alt=""  className="body"/>
       <div class="form-container">
-        
-      <img src={col_logo} alt="ui-element" className="image"/> 
+
+      <img src={col_logo} alt="ui-element" className="image"/>
             <h1>ADMIN LOGIN</h1>
-        
+
         <form class="register-form">
-          
-       
-           <label for="fname">Email : </label> 
+
+
+           <label for="fname">Email : </label>
 
           {<input
             id="email"
