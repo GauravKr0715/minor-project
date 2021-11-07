@@ -1,15 +1,15 @@
-const { loginSchema,
-  registerSchema } = require('./schemas/studentSchema');
+const { studentLoginSchema,
+  studentRegisterSchema } = require('./schemas/studentSchema');
 
-const registerValidation = (body) => {
-  return registerSchema.validate(body);
+const studentRegisterValidation = (body) => {
+  return studentRegisterSchema.validate(body);
 }
 
-const loginValidation = (body) => {
-  return loginSchema.validate(body);
+const studentLoginValidation = (body) => {
+  return studentLoginSchema.validate(body);
 }
 
 module.exports = {
-  registerValidation,
-  loginValidation
+  studentRegisterValidation,
+  studentLoginValidation
 }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const studentSchema = mongoose.Schema({
-  roll_no: {
+const facultySchema = mongoose.Schema({
+  uni_id: {
     type: String,
     required: true
   },
@@ -15,11 +15,11 @@ const studentSchema = mongoose.Schema({
   mobile: {
     type: String
   },
-  course: {
+  dept: {
     type: String,
     required: true
   },
-  yop: {
+  yoj: {
     type: String,
     required: true
   },
@@ -30,13 +30,23 @@ const studentSchema = mongoose.Schema({
   display_password: {
     type: String
   },
-  section: {
-    type: String
-  },
+  classes: [{
+    class_id: String,
+    subject_id: String,
+    subject_name: String,
+    subject_type: Number,
+    section: String
+  }],
+  time_table: [[{
+    slot_id: String,
+    class_id: String,
+    subject_name: String,
+    section: String
+  }]],
   createdAt: {
     type: Date,
     default: Date.now()
   }
 });
 
-module.exports = mongoose.model("student", studentSchema);
+module.exports = mongoose.model("faculty", facultySchema);
