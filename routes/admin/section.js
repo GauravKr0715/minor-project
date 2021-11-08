@@ -11,6 +11,21 @@ router.post('/addBasicDetails', async (req, res) => {
     logger.error(error);
     res.status(400).send({ error });
   }
+});
+
+router.put('/updateTimeTable', async (req, res) => {
+  const time_table = Object.assign([], req.body.time_table);
+  const section = req.query.section || null;
+  if (section) {
+    const data = await sectionController.updateTimeTable(time_table, section);
+
+    return res.send(data);
+  } else {
+    return res.status(400).send({
+      success: false,
+      message: 'Some error occured.'
+    });
+  }
 })
 
 module.exports = router;

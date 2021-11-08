@@ -29,8 +29,22 @@ const addDetails = async (details) => {
     logger.error(error);
     throw error;
   }
+};
+
+const updateSlot = async (faculty_id, new_slot, day_idx, slot_idx) => {
+  try {
+    console.log('updating for faculty:' + faculty_id);
+    let faculty_detail = await faculty_repo.fetchOne({ uni_id: faculty_id });
+    console.log(faculty_detail)
+    faculty_detail.time_table[day_idx][slot_idx] = new_slot;
+    await faculty_detail.save();
+  } catch (error) {
+    logger.error(error);
+    throw error;
+  }
 }
 
 module.exports = {
-  addDetails
+  addDetails,
+  updateSlot
 }

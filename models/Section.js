@@ -22,8 +22,12 @@ const sectionSchema = mongoose.Schema({
   time_table: [[{
     slot_id: String,
     class_id: String,
+    subject_id: String,
     subject_name: String,
-    faculty_name: String
+    subject_type: Number,
+    faculty_id: String,
+    faculty_name: String,
+    is_changed: Boolean
   }]],
   createdAt: {
     type: Date,

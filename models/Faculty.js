@@ -40,7 +40,9 @@ const facultySchema = mongoose.Schema({
   time_table: [[{
     slot_id: String,
     class_id: String,
+    subject_id: String,
     subject_name: String,
+    subject_type: Number,
     section: String
   }]],
   createdAt: {
