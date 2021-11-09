@@ -24,8 +24,8 @@
     
 }
 
-.one,.two,.three{
-    margin-right: 2rem;
+.ones,.twos,.threes{
+    margin-right: 1rem;
 }
 select{
     border-radius: 5px;
@@ -39,7 +39,7 @@ label{
 }
 
 .sel{
-    margin-right: 3rem;
+    margin-right: 2.1rem;
     font-size: 1.4rem;
 }
 
@@ -99,4 +99,24 @@ label{
     box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
     border: 1px solid #e4eaec;
     border-radius: 3px;
+}
+
+.options{
+    margin-left: 30rem;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4.7rem;
+    margin-top: 4rem;
+    border: 2px solid black;
+    width: 45%;
+    padding: 1.5rem;
+    border-radius: 4px;
+    background-color:rgb(219, 219, 219);
+}
+ 
+.options select{
+    margin-right: 2rem;
+}
+.options label{
+    margin-left: 3rem;
 }

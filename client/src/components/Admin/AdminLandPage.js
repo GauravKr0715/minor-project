@@ -2,8 +2,9 @@ import React from "react";
 /* import { useHistory } from "react-router-dom"; */
 
 import "./AdminLandPage.css";
+
 import { Link } from "react-router-dom";
-// import logo from "../../assets/image/logo.jpg";
+import logo from "../../assets/image/logo.jpg";
 
 
 
@@ -13,29 +14,32 @@ function AdminLandPage() {
  
     return (
       <div>
-      <div className="top-nav">
-        
+      <div>
+      <Link to="/AdminLandPage">  <img src={logo} alt="" className="img"/></Link>
        
-         <div>
-          {/* <Link to="/Landingpage">  <img src={logo} alt="" className="img"/></Link>
-            <p>Admin</p> */}
-            
-            </div>
+        </div>
+      
+  
+      <div className="sec">
+      <p>Admin</p>
+      
       </div>
+    
+
       <div className="container_">
         <div className="one">
-          <Link to="/SubjectPage">
+          <Link to="/SubjectPage" style={{textDecoration:"none",color:"beige"}}>
 
             <button class="button_" type="submit">
 
-              Subject
+              Subjects
             </button>
           </Link>
 
 
         </div>
         <div className="two">
-          <Link to="">
+          <Link to="" style={{textDecoration:"none",color:"beige"}}>
             <button class="button_" type="submit">
               Student
             </button>
@@ -43,7 +47,7 @@ function AdminLandPage() {
 
         </div>
         <div className="three">
-          <Link to="">
+          <Link to="" style={{textDecoration:"none",color:"beige"}}>
             <button class="button_" type="submit">
               Faculty
             </button>
@@ -52,7 +56,7 @@ function AdminLandPage() {
         </div>
 
         <div className="four">
-          <Link to="">
+          <Link to="/SectionCreate" style={{textDecoration:"none",color:"beige"}}>
             <button class="button_" type="submit">
               Section
             </button>
@@ -60,6 +64,11 @@ function AdminLandPage() {
 
         </div>
         </div>
+
+        <div className="logout">
+      <Link to="/logout" style={{textDecoration:"none",color:"beige" ,fontSize:3}}><p><i className="fas fa-sign-out-alt"></i> Logout</p></Link>
+      
+      </div>
 </div>
       
     )}

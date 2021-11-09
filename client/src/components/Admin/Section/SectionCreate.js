@@ -24,14 +24,14 @@ function SectionCreate() {
 
             <div className="option">
 
-            <div className="one">
+            <div className="ones">
             <label htmlFor="YOP">YoP:  </label>
             <select>
                 {yearList}
             </select>
             </div>
 
-            <div className="two">
+            <div className="twos">
                 <label htmlFor="year">Year:  </label>
                 <select>  
                    <option value = "Ist Year"> Ist Year
@@ -46,12 +46,12 @@ function SectionCreate() {
             </div>
 
 
-            <div className="three">
+            <div className="threes">
             <label htmlFor="Name">Name:  </label>
             <input type="text" placeholder="Section Name..." />
             </div>
 
-            <div className="four">
+            <div className="fours">
             <label htmlFor="Branch">Branch: </label>
             <select>  
                    <option value = "CSE"> CSE
