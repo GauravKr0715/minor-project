@@ -1,0 +1,56 @@
+.container_{
+
+width: 50rem; 
+height: 70vh;
+margin-left: 22rem;
+margin-top: 8rem;
+background-color: #FFFFFF;
+box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+background-clip: border-box;
+border-radius: 3px;
+border: 1px solid #e4eaec; 
+padding-left: 15rem;
+padding-top: 0.5rem;
+} 
+.one, .two, .three, .four {
+  width: 13rem; 
+height: 15vh;
+/* background-color: aqua; */
+
+}
+.top-nav{
+  height: 60px;
+  width:1440px;
+  background-color: #2A363C;
+
+}
+
+
+.button_ {
+ 
+  background-image: linear-gradient(to right, #141E30 0%, #243B55  51%, #141E30  100%);
+     margin: 10px;
+     padding: 15px 45px;
+     text-align: center;
+     text-transform: uppercase;
+     transition: 0.5s;
+     background-size: 200% auto;
+     color: white;  
+     height: 6rem; 
+     width: 18rem;         
+    
+     border-radius: 10px;
+     display: block;
+  
+}
+.button_:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+   
+}
+
+
+
+
+

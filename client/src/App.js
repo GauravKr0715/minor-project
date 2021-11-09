@@ -14,8 +14,16 @@ import Notes from "./components/Students/Notes/Notes"
 import Queries from "./components/Students/Queries/chatBody/ChatBody"
 import SectionCreate from './components/Admin/Section/SectionCreate';
 import SectionTable from './components/Admin/Section/SectionTable';
+import AdminLandPage from "./components/Admin/AdminLandPage"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import SubjectPage from './components/Admin/Subject';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrash, faPlus, faEdit } from "@fortawesome/free-solid-svg-icons";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+library.add(faTrash, faEdit, faPlus);
+
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -45,6 +53,8 @@ function App() {
           <Route path="/Queries" component={Queries} />
           <Route path="/SectionCreate" component={SectionCreate}/>
           <Route path="/SectionTable" component={SectionTable}/>
+          <Route path="/SubjectPage" exact component={SubjectPage} />
+          <Route path="/AdminLandPage" exact component={AdminLandPage}/>
 
 
         </Switch>

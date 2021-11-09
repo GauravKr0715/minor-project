@@ -6,7 +6,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 
-const logger = require('./utils/logger');
+const logger = require('./helpers/logger');
 
 // local imports
 const routes = require('./routes');
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // feeding local middlewares
-app.use('/api', routes);
+app.use('/api/v1', routes);
 
 app.get('/', (req, res) => {
   res.status(200).send('hello')

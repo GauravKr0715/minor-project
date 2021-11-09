@@ -1,10 +1,8 @@
+const Joi = require('joi');
 const joi = require('joi');
 
-const studentRegisterSchema = joi.object({
-  roll_no: joi.string()
-    .pattern(/^[0-9]+$/)
-    .min(11)
-    .max(11)
+const facultyRegisterSchema = joi.object({
+  uni_id: joi.string()
     .required(),
 
   full_name: joi.string()
@@ -19,15 +17,15 @@ const studentRegisterSchema = joi.object({
     .pattern(new RegExp('^[0-9]*$'))
     .required(),
 
-  course: joi.string()
+  dept: joi.string()
     .required(),
 
-  yop: joi.string()
+  yoj: joi.string()
     .required()
 
 });
 
-const studentLoginSchema = joi.object({
+const facultyLoginSchema = joi.object({
   roll_no: joi.string()
     .pattern(/^[0-9]+$/)
     .min(11)
@@ -39,6 +37,6 @@ const studentLoginSchema = joi.object({
 });
 
 module.exports = {
-  studentLoginSchema,
-  studentRegisterSchema
+  facultyLoginSchema,
+  facultyRegisterSchema
 };
