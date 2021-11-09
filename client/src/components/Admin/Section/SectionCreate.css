@@ -1,0 +1,102 @@
+
+
+
+.sec p{
+    color:rgb(0, 17, 32);
+    margin-left: 18rem;
+    margin-top: 1rem;
+    font-size: 3rem;
+    font-family: sans-serif;
+    text-shadow: 0px 5px 5px rgb(172, 169, 169);
+}
+
+.option{
+    margin-left: 25rem;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4.7rem;
+    margin-top: 4rem;
+    border: 2px solid black;
+    width: 55%;
+    padding: 1.5rem;
+    border-radius: 4px;
+    background-color:rgb(219, 219, 219);
+    
+}
+
+.one,.two,.three{
+    margin-right: 2rem;
+}
+select{
+    border-radius: 5px;
+    text-align: center;
+}
+
+label{
+    margin-right: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.sel{
+    margin-right: 3rem;
+    font-size: 1.4rem;
+}
+
+.boxs label{
+    font-size: 1.5rem;
+}
+
+.boxs{
+   margin-left: 3rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.add{
+    padding: 0.4rem;
+    border-radius: 3px;
+    background-color: rgb(0, 41, 32);
+    color: white;
+    font-weight: bold;
+}
+.mr10{
+    padding: 0.4rem;
+    border-radius: 3px;
+    background-color: rgba(243, 27, 27, 0.911);
+    color: white;
+    font-weight: bold;
+}
+
+.nextone{
+    margin-left: 45rem;
+    margin-top: 2rem;
+   width: 5%;
+   text-align: center;
+   padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    background-color: rgba(0, 68, 20, 0.911);
+    color: white;
+    font-weight: bold;
+}
+
+.nextone:hover ,.add:hover,.mr10:hover{
+    opacity: 0.7;
+    background-color: rgb(75, 4, 15);
+}
+
+.btn-box .mr10{
+    margin-right: 1rem;
+}
+
+.dyn{
+    background-color: white;
+    margin-left: 24rem;
+    width: 60%;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    border: 1px solid #e4eaec;
+    border-radius: 3px;
+}
