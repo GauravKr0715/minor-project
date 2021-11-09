@@ -1,2 +1,7 @@
-/node_modules 
+/node_modules
 .env
+/studentUploads
+logfile.log
+combined.log
+error.log
+*.json
