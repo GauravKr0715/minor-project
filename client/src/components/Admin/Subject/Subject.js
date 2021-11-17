@@ -11,7 +11,7 @@ function Subject() {
             <Sideview/> 
 
             <div className="sec">
-            <p>Subjects</p>
+            <p>Subjects Creation</p>
             
             </div>
 
