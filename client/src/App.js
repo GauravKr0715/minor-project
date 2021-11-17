@@ -14,6 +14,7 @@ import Notes from "./components/Students/Notes/Notes"
 import Queries from "./components/Students/Queries/chatBody/ChatBody"
 import SectionCreate from './components/Admin/Section/SectionCreate';
 import SectionTable from './components/Admin/Section/SectionTable';
+import SectionFinal from "./components/Admin/Section/SectionFinal";
 import AdminLandPage from "./components/Admin/AdminLandPage";
 import SubjectPage from './components/Admin/Subject/Subject';
 
@@ -54,8 +55,10 @@ function App() {
           <Route path="/Queries" component={Queries} />
           <Route path="/SectionCreate" component={SectionCreate}/>
           <Route path="/SectionTable" component={SectionTable}/>
+          <Route path="/SectionFinal" exact component={SectionFinal}/>
           <Route path="/SubjectPage" exact component={SubjectPage} />
           <Route path="/AdminLandPage" exact component={AdminLandPage}/>
+          
 
 
         </Switch>

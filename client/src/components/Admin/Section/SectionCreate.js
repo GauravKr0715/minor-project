@@ -18,7 +18,7 @@ function SectionCreate() {
             <Sideview/> 
 
             <div className="sec">
-            <p>Section</p>
+            <p>Section Creation</p>
             
             </div>
 
