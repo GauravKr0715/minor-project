@@ -2,6 +2,11 @@ const express = require('express');
 const app = express();
 
 const cors = require('cors');
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,            //access-control-allow-credentials:true
+  optionSuccessStatus: 200
+}
 require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -16,7 +21,7 @@ mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true, useUnifiedTopology
   logger.info("Connected to DB");
 });
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan('dev'));
 

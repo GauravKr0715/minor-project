@@ -13,67 +13,67 @@ import logo from "../assets/image/logo.jpg";
 
 
 function Slide() {
-  /*   const history = useHistory();
-    useEffect(() => {
-        if (!localStorage.getItem("Auth-token")) {
-            history.push("/login");
-        }
-    }, []); */
+    /*   const history = useHistory();
+      useEffect(() => {
+          if (!localStorage.getItem("Auth-token")) {
+              history.push("/login");
+          }
+      }, []); */
     return (
         <div >
-            
-                
-                    <img
-                        className="d-block w-100"
-                        src={image1}
-                        alt=" "
-                    />
-                   
-                    
+
+
+            <img
+                className="d-block w-100"
+                src={image1}
+                alt=" "
+            />
+
+
             <div className="Sl">
 
-            <div className="flex" id="flex">
-                <div className="box" id="one">
-                <img
-                className="icon"
-                src={icon1}
-                alt=" "
-            />
-                    <Link to="/StudentLogin" className="a">
-                        <h3>Student</h3>
-                    </Link>
-                </div>
+                <div className="flex" id="flex">
+                    <div className="box" id="one">
+                        <img
+                            className="icon"
+                            src={icon1}
+                            alt=" "
+                        />
+                        <Link to="/StudentLogin" className="a">
+                            <h3>Student</h3>
+                        </Link>
+                    </div>
 
-                <div className="box" id="two">
-                <img
-                className="icon"
-                src={icon2}
-                alt=" "
-            />
-                    <Link to="/FacultyLogin" className="a">
-                        <h3>Faculty</h3>
-                    </Link>
-                </div>
+                    <div className="box" id="two">
+                        <img
+                            className="icon"
+                            src={icon2}
+                            alt=" "
+                        />
+                        <Link to="/faculty/" className="a">
+                            <h3>Faculty</h3>
+                        </Link>
+                    </div>
 
-                <div className="box" id="thee">
-                <img
-                className="icon"
-                src={icon3}
-                alt=" "
-            />
-                    <Link to="/AdminLogin" className="a">
-                        <h3>
-                            Admin
-                        </h3>
-                    </Link>
-                </div>
+                    <div className="box" id="thee">
+                        <img
+                            className="icon"
+                            src={icon3}
+                            alt=" "
+                        />
+                        <Link to="/AdminLogin" className="a">
+                            <h3>
+                                Admin
+                            </h3>
+                        </Link>
+                    </div>
 
-                
+
+                </div>
+                <p className="head">College Portal</p>
+                <img src={logo} alt="" className="log" />
+                <p className="nam">Dr. Akhilesh Das Gupta Institute Of Technolgy and Technology</p>
             </div>
-            <p className="head">College Portal</p>
-            <img src={logo} alt="" className="log"/>
-            <p className="nam">Dr. Akhilesh Das Gupta Institute Of Technolgy and Technology</p>
-        </div>
         </div>
     );
 }

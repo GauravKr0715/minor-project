@@ -42,6 +42,26 @@ const updateSlot = async (faculty_id, new_slot, day_idx, slot_idx) => {
     logger.error(error);
     throw error;
   }
+};
+
+const validateUser = async (details) => {
+  try {
+    const user_exists_res = await faculty_repo.fetchOne({
+      uni_id: details.uni_id
+    });
+    console.log(user_exists_res);
+    if (user_exists_res && user_exists_res.length) {
+      // correct user id
+    } else {
+      return {
+        success: false,
+        message: 'Invalid User ID. Try again'
+      };
+    }
+  } catch (error) {
+    logger.error(error);
+    throw error;
+  }
 }
 
 module.exports = {

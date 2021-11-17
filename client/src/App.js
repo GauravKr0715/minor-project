@@ -3,9 +3,10 @@ import React from 'react'
 // import ReactDOM from 'react-dom'
 import Slide from "./components/Slide"
 import Landingpage from "./components/Students/Landingpage/Landingpage"
-import StudentLogin from './components/Login/S_Login';
-import FacultyLogin from './components/Login/F_Login';
-import AdminLogin from './components/Login/A_Login';
+import StudentLogin from './components/login/S_Login';
+import FacultyLogin from './components/login/F_Login';
+import FacultyHome from './components/faculty/home';
+import AdminLogin from './components/login/A_Login';
 import Assignments from "./components/Students/Assignments/Assignments"
 import Myattendence from "./components/Students/Myattendence/Myattendence"
 import Myprofile from "./components/Students/Myprofile/Myprofile"
@@ -42,9 +43,30 @@ function App() {
         <Switch>
 
           <Route path="/" exact component={Slide} />
+
+          <Route path="/faculty"
+            render={({ match: { url } }) => (
+              <>
+                <Route path={`${url}/login`} exact >
+                  {/* <Authorization /> */}
+                  <FacultyLogin />
+                </Route>
+                <Route path={`${url}/`} exact >
+                  {/* <Authorization /> */}
+                  <FacultyHome />
+                </Route>
+                <Route path={`${url}/feed`} exact >
+                  {/* <Authorization /> */}
+                  <FacultyHome />
+                </Route>
+              </>
+            )}>
+          </Route>
+
           <Route path="/SLandingpage" exact component={Landingpage} />
           <Route path="/StudentLogin" component={StudentLogin} />
-          <Route path="/FacultyLogin" component={FacultyLogin} />
+          <Route path="/faculty/login" component={FacultyLogin} />
+          <Route path="/faculty/" component={FacultyHome} />
           <Route path="/AdminLogin" component={AdminLogin} />
           <Route path="/Myprofile" component={Myprofile} />
           <Route path="/Myattendence" component={Myattendence} />
@@ -52,10 +74,10 @@ function App() {
           <Route path="/Assignments" component={Assignments} />
           <Route path="/Notes" component={Notes} />
           <Route path="/Queries" component={Queries} />
-          <Route path="/SectionCreate" component={SectionCreate}/>
-          <Route path="/SectionTable" component={SectionTable}/>
+          <Route path="/SectionCreate" component={SectionCreate} />
+          <Route path="/SectionTable" component={SectionTable} />
           <Route path="/SubjectPage" exact component={SubjectPage} />
-          <Route path="/AdminLandPage" exact component={AdminLandPage}/>
+          <Route path="/AdminLandPage" exact component={AdminLandPage} />
 
 
         </Switch>

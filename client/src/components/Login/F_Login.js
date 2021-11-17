@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import col_logo from "../../assets/image/logo.jpg"
 // import icon from "../assets/image/s_logo.jpeg";
 // import { Link } from "react-router-dom";
 // import image1 from "../assets/image/s.png";
 import bg from "../../assets/image/b3.jpg"
+import { loginFaculty } from '../../services/authentication';
 
 export default function FacultyLogin() {
-    return (
-        <div >
-        <img src={bg} alt="" className="body" />
+
+  const [userId, setUserID] = useState('');
+  const [password, setPassword] = useState('');
+
+  const LoginFaculty = async () => {
+    const data = await loginFaculty(userId, password);
+    console.log(data);
+  }
+
+  return (
+    <div >
+      <img src={bg} alt="" className="body" />
       <div class="form-container">
-        
-      <img src={col_logo} alt="ui-element"  className="image"/> 
-       
-            <h1>FACULTY LOGIN</h1>
-        
-          {/* <img src="../assets/image/a.png" alt="ui-element"/> */}
+
+        <img src={col_logo} alt="ui-element" className="image" />
+
+        <h1>FACULTY LOGIN</h1>
+
+        {/* <img src="../assets/image/a.png" alt="ui-element"/> */}
         <form class="register-form">
           {/* Uncomment the next line to show the success message */}
           {/* <div class="success-message">Success! Thank you for registering</div> */}
@@ -48,8 +58,12 @@ export default function FacultyLogin() {
             type="text"
             placeholder="College ID No"
             name="collegeIdNo"
+            value={userId}
+            onChange={(e) => {
+              setUserID(e.target.value);
+            }}
           />
-           {/* <label for="fname">Email : </label> */}
+          {/* <label for="fname">Email : </label> */}
 
           {/* <input
             id="email"
@@ -58,7 +72,7 @@ export default function FacultyLogin() {
             placeholder="Email"
             name="email"
           /> */}
-           <label for="fname">Password : </label>
+          <label for="fname">Password : </label>
 
           <input
             id="password"
@@ -66,14 +80,18 @@ export default function FacultyLogin() {
             type="password"
             placeholder="Password"
             name="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
           {/* Uncomment the next line to show the error message */}
           {/* <span id="email-error">Please enter an email address</span> */}
-          <button class="button" type="submit">
+          <button class="button" type="button" onClick={LoginFaculty}>
             LOGIN
           </button>
         </form>
       </div>
-      </div>
-    );
-  }
+    </div>
+  );
+}
