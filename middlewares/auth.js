@@ -54,7 +54,7 @@ module.exports = {
       })
     } else {
       console.log('we aint verified');
-      return res.send({ verified: false });
+      res.send({ verified: false });
     }
 
   },

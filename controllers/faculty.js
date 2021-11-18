@@ -1,5 +1,6 @@
 const faculty_repo = require('../models/faculty_repo');
 const logger = require('../helpers/logger');
+const util = require('../helpers/utils');
 const bcrypt = require('bcryptjs');
 const { default_time_table } = require('../global/data');
 
@@ -46,16 +47,38 @@ const updateSlot = async (faculty_id, new_slot, day_idx, slot_idx) => {
 
 const validateUser = async (details) => {
   try {
+    console.log(details);
     const user_exists_res = await faculty_repo.fetchOne({
       uni_id: details.uni_id
     });
     console.log(user_exists_res);
-    if (user_exists_res && user_exists_res.length) {
+    if (user_exists_res) {
       // correct user id
+      const pass_check = await bcrypt.compare(details.password, user_exists_res.password);
+      if (pass_check) {
+        // correct password - authentication successful
+
+        const token = util.getToken({
+          user_id: details.uni_id,
+          is_faculty: true
+        });
+
+        return {
+          success: true,
+          message: 'Logged In successfully',
+          token: token
+        }
+      } else {
+        return {
+          success: false,
+          message: 'Invalid User ID or password. Try Again'
+        };
+      }
     } else {
+      // incorrect user id
       return {
         success: false,
-        message: 'Invalid User ID. Try again'
+        message: 'Invalid User ID or password. Try Again'
       };
     }
   } catch (error) {
@@ -66,5 +89,6 @@ const validateUser = async (details) => {
 
 module.exports = {
   addDetails,
-  updateSlot
+  updateSlot,
+  validateUser
 }

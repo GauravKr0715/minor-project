@@ -5,7 +5,8 @@ import Slide from "./components/Slide"
 import Landingpage from "./components/Students/Landingpage/Landingpage"
 import StudentLogin from './components/login/S_Login';
 import FacultyLogin from './components/login/F_Login';
-import FacultyHome from './components/faculty/home';
+import FacultyHome from './components/Faculty/Home';
+import FacultyFeed from './components/Faculty/Feed';
 import AdminLogin from './components/login/A_Login';
 import Assignments from "./components/Students/Assignments/Assignments"
 import Myattendence from "./components/Students/Myattendence/Myattendence"
@@ -58,7 +59,7 @@ function App() {
                 </Route>
                 <Route path={`${url}/feed`} exact >
                   {/* <Authorization /> */}
-                  <FacultyHome />
+                  <FacultyFeed />
                 </Route>
               </>
             )}>

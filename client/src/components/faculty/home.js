@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { validateFacultySession } from '../../services/authentication';
 import Loader from '../Misc/Loader';
 
@@ -6,6 +6,7 @@ const FacultyHome = () => {
 
   const verifiySession = async () => {
     const { data } = await validateFacultySession();
+    console.log(data);
     if (data.verified) {
       window.location.href = `/faculty/feed`;
     } else {
