@@ -1,24 +1,24 @@
 export const faculty_sidebar_data = [
   {
     text: 'Home',
-    icon: 'https://img.icons8.com/ios-filled/50/000000/home.png'
+    icon: 'home'
   }, {
     text: 'Profile',
-    icon: 'https://img.icons8.com/ios-filled/50/000000/user-male-circle.png'
+    icon: 'account_circle'
   }, {
     text: 'Attendance',
-    icon: 'https://img.icons8.com/ios-filled/50/000000/document.png'
+    icon: 'description'
   }, {
     text: 'Time Table',
-    icon: 'https://img.icons8.com/ios-filled/50/000000/data-sheet.png'
+    icon: 'table_view'
   }, {
     text: 'Assignment & Tests',
-    icon: 'https://img.icons8.com/ios-filled/50/000000/task.png'
+    icon: 'task'
   }, {
     text: 'Notes',
-    icon: 'https://img.icons8.com/ios-filled/50/000000/paper.png'
+    icon: 'note'
   }, {
     text: 'Queries',
-    icon: 'https://img.icons8.com/ios-filled/50/000000/ask-question.png'
+    icon: 'question_answer'
   },
 ]

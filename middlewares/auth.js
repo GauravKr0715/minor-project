@@ -30,6 +30,7 @@ module.exports = {
     let token = fetchData(req, res);
 
     console.log('auth_token for req---', token, req.path);
+    let user_type = req.originalUrl.split('/')[3];
     if (token) {
       let decoded_data = {};
       let auth = false;
@@ -41,9 +42,16 @@ module.exports = {
             message: 'Session expired. Please login again'
           });
         } else {
-          auth = true;
-          console.log('decoded data-----', decoded);
-          decoded_data = decoded;
+          if (decoded[`is_${user_type}`]) {
+            auth = true;
+            console.log('decoded data-----', decoded);
+            decoded_data = decoded;
+          } else {
+            return res.send({
+              verified: false,
+              message: 'Some error occured. Please login again'
+            });
+          }
         }
         req.token_data = {
           data: decoded_data,

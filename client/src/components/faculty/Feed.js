@@ -17,19 +17,21 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import * as Muicon from "@material-ui/icons";
-import Icon from "@mui/material/Icon";
+// import Icon from "@mui/material/Icon";
 // import Icon from '@material-ui/core/Icon'
-import HomeIcon from "@mui/icons-material/Home";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import DescriptionIcon from "@mui/icons-material/Description";
-import TableChartIcon from "@mui/icons-material/TableChart";
-import AssignmentIcon from "@mui/icons-material/Assignment";
-import NoteIcon from "@mui/icons-material/Note";
-import LiveHelpIcon from "@mui/icons-material/LiveHelp";
+// import HomeIcon from "@mui/icons-material/Home";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+// import DescriptionIcon from "@mui/icons-material/Description";
+// import TableChartIcon from "@mui/icons-material/TableChart";
+// import AssignmentIcon from "@mui/icons-material/Assignment";
+// import NoteIcon from "@mui/icons-material/Note";
+// import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { faculty_sidebar_data } from "../../environments/sidebar_data";
+import "./feed.css";
+import moment from "moment";
 
 const drawerWidth = 240;
 
@@ -98,15 +100,257 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-const getIcon = (icon_name) => {
-  const Icon = Muicon[icon_name];
-  return `<${Icon} />`;
-};
+// const getIcon = (icon_name) => {
+//   const Icon = Muicon[icon_name];
+//   return `<${Icon} />`;
+// };
 
 function Feed() {
+  const [days, setDays] = useState({
+    Monday: 0,
+    Tuesday: 1,
+    Wednesday: 2,
+    Thursday: 3,
+    Friday: 4,
+    Saturday: 5,
+  });
+  const [time_table, setTimeTable] = useState([
+    [
+      {
+        slot_id: "D1S1",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D1S2",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D1S3",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D1S4",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D1S5",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D1S6",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+    ],
+    [
+      {
+        slot_id: "D2S1",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D2S2",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D2S3",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D2S4",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D2S5",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D2S6",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+    ],
+    [
+      {
+        slot_id: "D3S1",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D3S2",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D3S3",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D3S4",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D3S5",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D3S6",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+    ],
+    [
+      {
+        slot_id: "D4S1",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D4S2",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D4S3",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D4S4",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D4S5",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D4S6",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+    ],
+    [
+      {
+        slot_id: "D5S1",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D5S2",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D5S3",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D5S4",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D5S5",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D5S6",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+    ],
+    [
+      {
+        slot_id: "D6S1",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D6S2",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D6S3",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D6S4",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D6S5",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+      {
+        slot_id: "D6S6",
+        class_id: "ABC123",
+        subject_name: "Unalloted",
+        section: "ABCXYZ",
+      },
+    ],
+  ]);
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  useEffect(() => {
+    console.log(time_table[days[moment().format("dddd")]]);
+  }, []);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -138,10 +382,24 @@ function Feed() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          {/* <Typography variant="h6" noWrap component="div">
             Mini variant drawer
-          </Typography>
-          <Box sx={{ flexGrow: 1 }} />
+          </Typography> */}
+          <Box sx={{ flexGrow: 1 }}>
+            <div className="floating-container">
+              <div className="inner-container">
+                {time_table[days[moment().format("dddd")]].map((slot) => (
+                  <div className="slot">
+                    <div className="slot_time">09:10 - 10:10</div>
+                    <div className="slot_sub">{slot.subject_name}</div>
+                    <div className="slot-sec">
+                      {slot.section !== "ABCXYZ" ? slot.section : "NA"}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
@@ -177,7 +435,7 @@ function Feed() {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton edge="start" color="inherit" onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
@@ -185,12 +443,13 @@ function Feed() {
             )}
           </IconButton>
         </DrawerHeader>
-        <Divider />
+        {/* <Divider /> */}
         <List>
           {faculty_sidebar_data.map((section, idx) => (
             <ListItem button key={section.text}>
               <ListItemIcon>
-                <img className="sideBarIcon" src={`${section.icon}`} alt="" />
+                <span class="material-icons">{section.icon}</span>
+                {/* <img className="sideBarIcon" src={`${section.icon}`} alt="" /> */}
                 {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
               </ListItemIcon>
               <ListItemText primary={section.text} />
