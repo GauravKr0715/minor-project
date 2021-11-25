@@ -1,4 +1,12 @@
 module.exports = {
+  "days_map": {
+    'Monday': 0,
+    'Tuesday': 1,
+    'Wednesday': 2,
+    'Thursday': 3,
+    'Friday': 4,
+    'Saturday': 5,
+  },
   "default_time_table": [
     [
       { "slot_id": "D1S1", "class_id": "ABC123", "subject_id": "UND123", "subject_name": "Unalloted", "subject_type": 0, "faculty_id": "UND123", "faculty_name": "ABCXYZ" },

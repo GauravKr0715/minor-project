@@ -11,10 +11,22 @@ export default function FacultyLogin() {
 
   const [userId, setUserID] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   const LoginFaculty = async () => {
-    const data = await loginFaculty(userId, password);
-    console.log(data);
+    try {
+      setError(null);
+      const { data } = await loginFaculty(userId, password);
+      console.log(data);
+      if (data.success) {
+        alert(`we're in`);
+        window.location.href = '/faculty/feed';
+      } else {
+        setError(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -86,7 +98,11 @@ export default function FacultyLogin() {
             }}
           />
           {/* Uncomment the next line to show the error message */}
-          {/* <span id="email-error">Please enter an email address</span> */}
+          {
+            error && (
+              <span id="email-error">{error}</span>
+            )
+          }
           <button class="button" type="button" onClick={LoginFaculty}>
             LOGIN
           </button>

@@ -10,6 +10,7 @@ const corsOptions = {
 require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 const logger = require('./helpers/logger');
 
@@ -21,6 +22,7 @@ mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true, useUnifiedTopology
   logger.info("Connected to DB");
 });
 
+app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan('dev'));

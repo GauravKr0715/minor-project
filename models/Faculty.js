@@ -35,7 +35,11 @@ const facultySchema = mongoose.Schema({
     subject_id: String,
     subject_name: String,
     subject_type: Number,
-    section: String
+    section: String,
+    link: {
+      title: String,
+      url: String
+    }
   }],
   time_table: [[{
     slot_id: String,
@@ -45,6 +49,10 @@ const facultySchema = mongoose.Schema({
     subject_type: Number,
     section: String
   }]],
+  links: [{
+    title: String,
+    url: String
+  }],
   createdAt: {
     type: Date,
     default: Date.now()
