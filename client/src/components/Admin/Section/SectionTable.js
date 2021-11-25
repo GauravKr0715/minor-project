@@ -212,6 +212,8 @@ const getClassString = (slot) => {
       <ClassModal open={open}
       onClose={() => handleClose()}/>
       </div>
+
+    
     )
       
 }
