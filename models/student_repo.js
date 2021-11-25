@@ -26,5 +26,13 @@ module.exports = {
     } catch (error) {
       throw error;
     }
+  },
+
+  fetchAllByCondition: async (condition) => {
+    try {
+      return await Student.find(condition);
+    } catch (error) {
+      throw error;
+    }
   }
 }

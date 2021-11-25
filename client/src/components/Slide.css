@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 html {
-  cursor: url("../assets/image/cursor.png"), auto;
+  /* cursor: url("../assets/image/cursor.png"), auto; */
 }
 body {
   background-color: white;

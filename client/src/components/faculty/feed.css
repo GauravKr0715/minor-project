@@ -13,12 +13,25 @@
 .MuiList-root {
   height: 100%;
   background-color: #263238;
-  color: #fff;
+  color: #fff !important;
   font-weight: bold;
   margin-top: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.MuiListItem-root {
+  color: #fff !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.MuiListItem-root:hover {
+  color: #fff !important;
+  text-decoration: none;
 }
 
 .MuiTypography-root {
@@ -90,4 +103,28 @@
 .floating-container .inner-container .slot .slot_sec {
   font-size: 13px;
   font-weight: bold;
+}
+
+.lunch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0.25rem -1rem;
+  padding: 10px 25px;
+  border: 1px solid;
+  border-radius: 12px;
+  background-color: #c7ccce !important;
+  color: rgb(0, 0, 0);
+}
+
+.slot-drawer .drawer-key {
+  font-size: 13px;
+  color: #ccc4c4;
+}
+
+.slot-drawer .drawer-key .drawer-value {
+  font-size: 15px;
+  display: inline;
+  color: #fff;
 }

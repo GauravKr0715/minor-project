@@ -11,7 +11,7 @@ const addBasicDetails = async (details) => {
         subject_id: c.subject_id,
         subject_name: c.subject_name,
         subject_type: c.subject_type,
-        section: details.name
+        section: details.name,
       }, {
         uni_id: c.faculty_id
       }, 'classes');

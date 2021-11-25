@@ -17,21 +17,14 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import * as Muicon from "@material-ui/icons";
-// import Icon from "@mui/material/Icon";
-// import Icon from '@material-ui/core/Icon'
-// import HomeIcon from "@mui/icons-material/Home";
-// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-// import DescriptionIcon from "@mui/icons-material/Description";
-// import TableChartIcon from "@mui/icons-material/TableChart";
-// import AssignmentIcon from "@mui/icons-material/Assignment";
-// import NoteIcon from "@mui/icons-material/Note";
-// import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { faculty_sidebar_data } from "../../environments/sidebar_data";
 import "./feed.css";
 import moment from "moment";
+import { getFacultyBasicDetails } from "../../services/faculty";
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -106,6 +99,8 @@ const Drawer = styled(MuiDrawer, {
 // };
 
 function Feed() {
+  let { url, path } = useRouteMatch();
+  const curr_url = "/" + url.split("/")[1];
   const [days, setDays] = useState({
     Monday: 0,
     Tuesday: 1,
@@ -114,6 +109,100 @@ function Feed() {
     Friday: 4,
     Saturday: 5,
   });
+
+  const [lunch_details, setLunchDetails] = useState({
+    time: "11.00 - 11.30",
+    name: "Lunch",
+    section: "----",
+  });
+
+  const [slot_times, setSlotTimes] = useState([
+    "09.10 - 10.05",
+    "10.05 - 11.00",
+    "11.30 - 12.25",
+    "12.25 - 13.20",
+    "13.20 - 14.15",
+    "14.15 - 15.10",
+  ]);
+
+  const [holiday_time_table, setHolidayTimeTable] = useState([
+    {
+      slot_id: "D1S1",
+      class_id: "ABC123",
+      subject_name: "Holiday",
+      section: "----",
+    },
+    {
+      slot_id: "D1S2",
+      class_id: "ABC123",
+      subject_name: "Holiday",
+      section: "----",
+    },
+    {
+      slot_id: "D1S3",
+      class_id: "ABC123",
+      subject_name: "Holiday",
+      section: "----",
+    },
+    {
+      slot_id: "D1S4",
+      class_id: "ABC123",
+      subject_name: "Holiday",
+      section: "----",
+    },
+    {
+      slot_id: "D1S5",
+      class_id: "ABC123",
+      subject_name: "Holiday",
+      section: "----",
+    },
+    {
+      slot_id: "D1S6",
+      class_id: "ABC123",
+      subject_name: "Holiday",
+      section: "----",
+    },
+  ]);
+
+  const [todays_time_table, setTodaysTimeTable] = useState([
+    {
+      slot_id: "D1S1",
+      class_id: "ABC123",
+      subject_name: "Unalloted",
+      section: "ABCXYZ",
+    },
+    {
+      slot_id: "D1S2",
+      class_id: "ABC123",
+      subject_name: "Unalloted",
+      section: "ABCXYZ",
+    },
+    {
+      slot_id: "D1S3",
+      class_id: "ABC123",
+      subject_name: "Unalloted",
+      section: "ABCXYZ",
+    },
+    {
+      slot_id: "D1S4",
+      class_id: "ABC123",
+      subject_name: "Unalloted",
+      section: "ABCXYZ",
+    },
+    {
+      slot_id: "D1S5",
+      class_id: "ABC123",
+      subject_name: "Unalloted",
+      section: "ABCXYZ",
+    },
+    {
+      slot_id: "D1S6",
+      class_id: "ABC123",
+      subject_name: "Unalloted",
+      section: "ABCXYZ",
+    },
+  ]);
+
   const [time_table, setTimeTable] = useState([
     [
       {
@@ -309,47 +398,77 @@ function Feed() {
       {
         slot_id: "D6S1",
         class_id: "ABC123",
-        subject_name: "Unalloted",
+        subject_name: "class 1",
         section: "ABCXYZ",
       },
       {
         slot_id: "D6S2",
         class_id: "ABC123",
-        subject_name: "Unalloted",
+        subject_name: "class 2",
         section: "ABCXYZ",
       },
       {
         slot_id: "D6S3",
         class_id: "ABC123",
-        subject_name: "Unalloted",
+        subject_name: "class 3",
         section: "ABCXYZ",
       },
       {
         slot_id: "D6S4",
         class_id: "ABC123",
-        subject_name: "Unalloted",
+        subject_name: "class 4",
         section: "ABCXYZ",
       },
       {
         slot_id: "D6S5",
         class_id: "ABC123",
-        subject_name: "Unalloted",
+        subject_name: "class 5",
         section: "ABCXYZ",
       },
       {
         slot_id: "D6S6",
         class_id: "ABC123",
-        subject_name: "Unalloted",
+        subject_name: "class 1",
         section: "ABCXYZ",
       },
     ],
   ]);
+
+  const [slot_details_anchor, setSlotDetailsAnchor] = useState(false);
+  const [selectedSlot, setSelectedSlot] = useState(null);
+  const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
+
+  const toggleSlotDrawer = () => {
+    if (slot_details_anchor === true) {
+      setSelectedSlot(null);
+      setSelectedSlotIndex(null);
+    }
+    setSlotDetailsAnchor(!slot_details_anchor);
+  };
+
+  const openSlotDrawer = (slot, idx) => {
+    console.log(slot);
+    setSelectedSlot(slot);
+    setSelectedSlotIndex(idx);
+    setSlotDetailsAnchor(true);
+  };
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  const [faculty_details, setFacultyDetails] = useState(null);
+
+  const facultyBasicDetails = async () => {
+    const { data } = await getFacultyBasicDetails();
+    console.log(data);
+    setFacultyDetails(data);
+    setTimeTable(data.time_table);
+    setTodaysTimeTable(data.todays_time_table);
+  };
+
   useEffect(() => {
-    console.log(time_table[days[moment().format("dddd")]]);
+    facultyBasicDetails();
   }, []);
 
   const handleDrawerOpen = () => {
@@ -366,149 +485,304 @@ function Feed() {
   const menuId = "primary-search-account-menu";
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: "36px",
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography> */}
-          <Box sx={{ flexGrow: 1 }}>
-            <div className="floating-container">
-              <div className="inner-container">
-                {time_table[days[moment().format("dddd")]].map((slot) => (
-                  <div className="slot">
-                    <div className="slot_time">09:10 - 10:10</div>
-                    <div className="slot_sub">{slot.subject_name}</div>
-                    <div className="slot-sec">
-                      {slot.section !== "ABCXYZ" ? slot.section : "NA"}
-                    </div>
-                  </div>
-                ))}
+    <>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: "36px",
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            {/* <Typography variant="h6" noWrap component="div">
+              Mini variant drawer
+            </Typography> */}
+            <Box sx={{ flexGrow: 1 }}>
+              <div className="floating-container">
+                <div className="inner-container">
+                  {moment().format("dddd") !== "Sunday"
+                    ? time_table[days[moment().format("dddd")]].map(
+                      (slot, idx) =>
+                        slot.slot_id[3] === "2" ? (
+                          <>
+                            <div
+                              className="slot"
+                              onClick={() => {
+                                openSlotDrawer(slot, idx);
+                              }}
+                            >
+                              <div className="slot_time">
+                                {slot_times[idx]}
+                              </div>
+                              <div className="slot_sub">
+                                {slot.subject_name}
+                              </div>
+                              <div className="slot-sec">
+                                {slot.section !== "ABCXYZ"
+                                  ? slot.section
+                                  : "NA"}
+                              </div>
+                            </div>
+                            <div className="slot lunch">
+                              <div className="slot_time">
+                                {lunch_details.time}
+                              </div>
+                              <div className="slot_sub">
+                                {lunch_details.name}
+                              </div>
+                              <div className="slot-sec">
+                                {lunch_details.section}
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <div
+                            className="slot"
+                            onClick={() => {
+                              openSlotDrawer(slot, idx);
+                            }}
+                          >
+                            <div className="slot_time">{slot_times[idx]}</div>
+                            <div className="slot_sub">
+                              {slot.subject_name}
+                            </div>
+                            <div className="slot-sec">
+                              {slot.section !== "ABCXYZ"
+                                ? slot.section
+                                : "NA"}
+                            </div>
+                          </div>
+                        )
+                    )
+                    : holiday_time_table.map((slot, idx) => (
+                      <div className="slot">
+                        <div className="slot_time">{slot_times[idx]}</div>
+                        <div className="slot_sub">{slot.subject_name}</div>
+                        <div className="slot-sec">{slot.section}</div>
+                      </div>
+                    ))}
+                  {/* {
+                    moment().format("dddd") !== 'Sunday' ? (
+                      time_table[days[moment().format("dddd")]].map((slot, idx) => (
+                        <div className="slot">
+                          <div className="slot_time">{slot_times[idx]}</div>
+                          <div className="slot_sub">{slot.subject_name}</div>
+                          <div className="slot-sec">
+                            {slot.section !== "ABCXYZ" ? slot.section : "NA"}
+                          </div>
+                        </div>
+                      ))
+                    ) : (
+                      holiday_time_table.map((slot, idx) => (
+                        <div className="slot">
+                          <div className="slot_time">{slot_times[idx]}</div>
+                          <div className="slot_sub">{slot.subject_name}</div>
+                          <div className="slot-sec">
+                            {slot.section}
+                          </div>
+                        </div>
+                      ))
+                    )
+                  } */}
+                  {/* {
+                    time_table[days[moment().format("dddd")]].map((slot) => (
+                      <div className="slot">
+                        <div className="slot_time">09:10 - 10:10</div>
+                        <div className="slot_sub">{slot.subject_name}</div>
+                        <div className="slot-sec">
+                          {slot.section !== "ABCXYZ" ? slot.section : "NA"}
+                        </div>
+                      </div>
+                    ))
+                  } */}
+                </div>
               </div>
-            </div>
-          </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            </Box>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit"
+              >
+                <Badge badgeContent={4} color="error">
+                  <MailIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="inherit"
+              >
+                <Badge badgeContent={17} color="error">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
             <IconButton
-              size="large"
-              aria-label="show 4 new mails"
+              edge="start"
               color="inherit"
+              onClick={handleDrawerClose}
             >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton edge="start" color="inherit" onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        {/* <Divider /> */}
-        <List>
-          {faculty_sidebar_data.map((section, idx) => (
-            <ListItem button key={section.text}>
-              <ListItemIcon>
-                <span class="material-icons">{section.icon}</span>
-                {/* <img className="sideBarIcon" src={`${section.icon}`} alt="" /> */}
-                {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-              </ListItemIcon>
-              <ListItemText primary={section.text} />
-            </ListItem>
-          ))}
-          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
-        </List>
-        <Divider />
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+          </DrawerHeader>
+          {/* <Divider /> */}
+          <List>
+            {faculty_sidebar_data.map((section, idx) => (
+              <Link to={`${curr_url}${section.link}`}>
+                <ListItem button key={section.text}>
+                  <ListItemIcon>
+                    <span class="material-icons">{section.icon}</span>
+                    {/* <img className="sideBarIcon" src={`${section.icon}`} alt="" /> */}
+                    {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                  </ListItemIcon>
+                  <ListItemText primary={section.text} />
+                </ListItem>
+              </Link>
+            ))}
+            {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))} */}
+          </List>
+          <Divider />
+          {/* <List>
+            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+          </List> */}
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <DrawerHeader />
+          <Typography paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
+            dolor purus non enim praesent elementum facilisis leo vel. Risus at
+            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
+            rutrum quisque non tellus. Convallis convallis tellus id interdum
+            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
+            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
+            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
+            eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
+            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
+            vivamus at augue. At augue eget arcu dictum varius duis at
+            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+            donec massa sapien faucibus et molestie ac.
+          </Typography>
+          <Typography paragraph>
+            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
+            ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
+            elementum integer enim neque volutpat ac tincidunt. Ornare
+            suspendisse sed nisi lacus sed viverra tellus. Purus sit amet
+            volutpat consequat mauris. Elementum eu facilisis sed odio morbi.
+            Euismod lacinia at quis risus sed vulputate odio. Morbi tincidunt
+            ornare massa eget egestas purus viverra accumsan in. In hendrerit
+            gravida rutrum quisque non tellus orci ac. Pellentesque nec nam
+            aliquam sem et tortor. Habitant morbi tristique senectus et.
+            Adipiscing elit duis tristique sollicitudin nibh sit. Ornare aenean
+            euismod elementum nisi quis eleifend. Commodo viverra maecenas
+            accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam
+            ultrices sagittis orci a.
+          </Typography>
+        </Box>
       </Box>
-    </Box>
+      <MuiDrawer
+        sx={{
+          width: 250,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: 250,
+            boxSizing: "border-box",
+          },
+          zIndex: 1000,
+        }}
+        variant="temporary"
+        anchor="right"
+        open={slot_details_anchor}
+        onClose={toggleSlotDrawer}
+      >
+        {selectedSlot && (
+          <List>
+            <ListItem>
+              <div className="slot-drawer">
+                <div className="drawer-key">
+                  Slot Time:&nbsp;&nbsp;&nbsp;
+                  <div className="drawer-value">
+                    {slot_times[selectedSlotIndex]}
+                  </div>
+                </div>
+              </div>
+            </ListItem>
+            <ListItem>
+              <div className="slot-drawer">
+                <div className="drawer-key">
+                  Subject:&nbsp;&nbsp;&nbsp;
+                  <div className="drawer-value">
+                    {selectedSlot.subject_name}
+                  </div>
+                </div>
+              </div>
+            </ListItem>
+            <ListItem>
+              <div className="slot-drawer">
+                <div className="drawer-key">
+                  Section:&nbsp;&nbsp;&nbsp;
+                  <div className="drawer-value">{selectedSlot.section}</div>
+                </div>
+              </div>
+            </ListItem>
+            <ListItem>
+              <div className="slot-drawer">
+                <div className="drawer-key">
+                  Class Link:&nbsp;&nbsp;&nbsp;
+                  <div className="drawer-value">
+                    {selectedSlot.link
+                      ? selectedSlot.link.title
+                      : "Link Not available"}
+                  </div>
+                </div>
+              </div>
+            </ListItem>
+          </List>
+        )}
+      </MuiDrawer>
+    </>
   );
 }
 
