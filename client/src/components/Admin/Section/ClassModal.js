@@ -30,6 +30,7 @@ function ClassModal(props) {
                 <div style={style}>
                     Text in a modal
                     Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    classe
                     <div>
                     
                     </div>

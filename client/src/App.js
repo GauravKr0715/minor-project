@@ -8,6 +8,9 @@ import FacultyLogin from './components/login/F_Login';
 import FacultyHome from './components/Faculty/Home';
 import FacultyFeed from './components/Faculty/Feed';
 import FacultyAttendance from './components/Faculty/Attendance';
+import StudentHome from './components/Students/Home';
+import StudentFeed from './components/Students/Feed';
+import StudentAttendance from './components/Students/Attendance';
 import AdminLogin from './components/login/A_Login';
 import Assignments from "./components/Students/Assignments/Assignments"
 import Myattendence from "./components/Students/Myattendence/Myattendence"
@@ -70,10 +73,34 @@ function App() {
             )}>
           </Route>
 
+          <Route path="/student"
+          render={({ match: { url } }) => (
+            <>
+              <Route path={`${url}/login`} exact >
+                {/* <Authorization /> */}
+                <StudentLogin />
+              </Route>
+              <Route path={`${url}/`} exact >
+                {/* <Authorization /> */}
+                <StudentHome />
+              </Route>
+              <Route path={`${url}/feed`} exact >
+                {/* <Authorization /> */}
+                <StudentFeed />
+              </Route>
+              <Route path={`${url}/attendance`} exact >
+                {/* <Authorization /> */}
+                <StudentAttendance />
+              </Route>
+            </>
+          )}>
+        </Route>
+
           <Route path="/SLandingpage" exact component={Landingpage} />
           <Route path="/StudentLogin" component={StudentLogin} />
           <Route path="/faculty/login" component={FacultyLogin} />
           <Route path="/faculty/" component={FacultyHome} />
+          <Route path="/student/" component={StudentHome} />
           <Route path="/AdminLogin" component={AdminLogin} />
           <Route path="/Myprofile" component={Myprofile} />
           <Route path="/Myattendence" component={Myattendence} />

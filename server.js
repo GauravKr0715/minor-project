@@ -17,9 +17,12 @@ const logger = require('./helpers/logger');
 // local imports
 const routes = require('./routes');
 
-mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
+  if (error) throw error;
   logger.info(`database status: ${mongoose.connection.readyState}`);
   logger.info("Connected to DB");
+  
+
 });
 
 app.use(cookieParser());

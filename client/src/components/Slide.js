@@ -39,7 +39,7 @@ function Slide() {
                             src={icon1}
                             alt=" "
                         />
-                        <Link to="/StudentLogin" className="a">
+                        <Link to="/student/login" className="a">
                             <h3>Student</h3>
                         </Link>
                     </div>
@@ -50,7 +50,7 @@ function Slide() {
                             src={icon2}
                             alt=" "
                         />
-                        <Link to="/faculty/" className="a">
+                        <Link to="/faculty/login" className="a">
                             <h3>Faculty</h3>
                         </Link>
                     </div>
@@ -72,7 +72,7 @@ function Slide() {
                 </div>
                 <p className="head">College Portal</p>
                 <img src={logo} alt="" className="log" />
-                <p className="nam">Dr. Akhilesh Das Gupta Institute Of Technolgy and Technology</p>
+                <p className="nam">Dr. Akhilesh Das Gupta Institute Of Technolgy and Management</p>
             </div>
         </div>
     );
