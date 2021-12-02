@@ -23,6 +23,8 @@ import SectionTable from './components/Admin/Section/SectionTable';
 import SectionFinal from "./components/Admin/Section/SectionFinal";
 import AdminLandPage from "./components/Admin/AdminLandPage";
 import SubjectPage from './components/Admin/Subject/Subject';
+import AdminStudent from "./components/Admin/Student"
+import AdminFaculty from "./components/Admin/Faculty"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
@@ -113,6 +115,8 @@ function App() {
           <Route path="/SectionFinal" exact component={SectionFinal} />
           <Route path="/SubjectPage" exact component={SubjectPage} />
           <Route path="/AdminLandPage" exact component={AdminLandPage} />
+          <Route path="/AdminStudent" exact component={AdminStudent} />
+          <Route path="/AdminFaculty" exact component={AdminFaculty} />
 
 
 
