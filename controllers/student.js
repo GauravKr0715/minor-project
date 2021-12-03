@@ -1,7 +1,9 @@
 const student_repo = require('../models/student_repo');
+const section_repo = require('../models/section_repo');
 const logger = require('../helpers/logger');
 const bcrypt = require('bcryptjs');
 const csv = require('csvtojson');
+const util = require('../helpers/utils');
 const { registerValidation, loginValidation } = require("../validators/studentValidator");
 const { json } = require('express');
 
@@ -110,7 +112,7 @@ const validateUser = async (details) => {
 
         const token = util.getToken({
           user_id: details.roll_no,
-          is_Student: true
+          is_student: true
         });
 
         return {
@@ -152,11 +154,30 @@ const addSubjects = async (details, condition) => {
     throw error;
   }
 }
+const getBasicDetails = async (roll_no) => {
+  try {
+    let student_data = await student_repo.fetchOneCertainFields("roll_no full_name section ", { roll_no });
+    let section_data= await section_repo.fetchCertainFieldsByCondition("time_table classes " , {name:student_data.section})
+
+    let result = {};
+    result.roll_no=student_data.roll_no
+    result.full_name=student_data.full_name
+    result.section=student_data.section
+    result.time_table=section_data.time_table
+    result.classes=section_data.classes
+
+    return result;
+  } catch (error) {
+    logger.error(error);
+    throw error;
+  }
+}
 
 module.exports = {
   addDetails,
   saveAllStudents,
   updateDetails,
   validateUser,
-  addSubjects
+  addSubjects,
+  getBasicDetails
 }

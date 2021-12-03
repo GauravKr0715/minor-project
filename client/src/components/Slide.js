@@ -39,7 +39,7 @@ function Slide() {
                             src={icon1}
                             alt=" "
                         />
-                        <Link to="/student/login" className="a">
+                        <Link to="/student/" className="a">
                             <h3>Student</h3>
                         </Link>
                     </div>
@@ -50,7 +50,7 @@ function Slide() {
                             src={icon2}
                             alt=" "
                         />
-                        <Link to="/faculty/login" className="a">
+                        <Link to="/faculty/" className="a">
                             <h3>Faculty</h3>
                         </Link>
                     </div>

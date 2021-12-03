@@ -1,5 +1,6 @@
 
 import React from 'react'
+import "./App.css"
 // import ReactDOM from 'react-dom'
 import Slide from "./components/Slide"
 import Landingpage from "./components/Students/Landingpage/Landingpage"
@@ -12,20 +13,15 @@ import StudentHome from './components/Students/Home';
 import StudentFeed from './components/Students/Feed';
 import StudentAttendance from './components/Students/Attendance';
 import AdminLogin from './components/login/A_Login';
-import Assignments from "./components/Students/Assignments/Assignments"
-import Myattendence from "./components/Students/Myattendence/Myattendence"
-import Myprofile from "./components/Students/Myprofile/Myprofile"
-import Timetable from "./components/Students/Timetable/Timetable"
-import Notes from "./components/Students/Notes/Notes"
-import Queries from "./components/Students/Queries/chatBody/ChatBody"
 import SectionCreate from './components/Admin/Section/SectionCreate';
 import SectionTable from './components/Admin/Section/SectionTable';
 import SectionFinal from "./components/Admin/Section/SectionFinal";
 import AdminLandPage from "./components/Admin/AdminLandPage";
 import SubjectPage from './components/Admin/Subject/Subject';
-import AdminStudent from "./components/Admin/Student"
-import AdminFaculty from "./components/Admin/Faculty"
-
+import AdminStudent from "./components/Admin/student/Student"
+import AdminFaculty from "./components/Admin/faculty/Faculty"
+import FacultyTT from "./components/Faculty/timetable"
+import StudentTT from "./components/Students/Timetable"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 /* import { library } from "@fontawesome/fontawesome-svg-core";
@@ -71,6 +67,10 @@ function App() {
                   {/* <Authorization /> */}
                   <FacultyAttendance />
                 </Route>
+                <Route path={`${url}/time-table`} exact >
+                  {/* <Authorization /> */}
+                  <FacultyTT />
+                </Route>
               </>
             )}>
           </Route>
@@ -94,6 +94,10 @@ function App() {
                 {/* <Authorization /> */}
                 <StudentAttendance />
               </Route>
+              <Route path={`${url}/time-table`} exact >
+                  {/* <Authorization /> */}
+                  <StudentTT />
+                </Route>
             </>
           )}>
         </Route>
@@ -104,12 +108,6 @@ function App() {
           <Route path="/faculty/" component={FacultyHome} />
           <Route path="/student/" component={StudentHome} />
           <Route path="/AdminLogin" component={AdminLogin} />
-          <Route path="/Myprofile" component={Myprofile} />
-          <Route path="/Myattendence" component={Myattendence} />
-          <Route path="/Timetable" component={Timetable} />
-          <Route path="/Assignments" component={Assignments} />
-          <Route path="/Notes" component={Notes} />
-          <Route path="/Queries" component={Queries} />
           <Route path="/SectionCreate" component={SectionCreate} />
           <Route path="/SectionTable" component={SectionTable} />
           <Route path="/SectionFinal" exact component={SectionFinal} />
@@ -117,6 +115,7 @@ function App() {
           <Route path="/AdminLandPage" exact component={AdminLandPage} />
           <Route path="/AdminStudent" exact component={AdminStudent} />
           <Route path="/AdminFaculty" exact component={AdminFaculty} />
+          <Route path="/FacultyTT" exact component={FacultyTT} />
 
 
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { validateStudentSession } from '../../services/authenticationStudent';
+import { validateStudentSession } from '../../services/authentication';
 import Loader from '../Misc/Loader';
 
 const StudentHome = () => {

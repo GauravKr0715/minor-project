@@ -35,8 +35,8 @@ router.get('/validateSession', (req, res) => {
 
 router.get('/basicDetails', async (req, res) => {
   try {
-    const uni_id = req.token_data.data.user_id;
-    const data = await StudentController.getBasicDetails(uni_id);
+    const roll_no = req.token_data.data.user_id;
+    const data = await StudentController.getBasicDetails(roll_no);
 
     // console.log(data);
     return res.send(data);

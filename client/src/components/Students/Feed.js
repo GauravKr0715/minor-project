@@ -113,7 +113,7 @@ function Feed() {
   const [lunch_details, setLunchDetails] = useState({
     time: "11.00 - 11.30",
     name: "Lunch",
-    section: "----",
+    faculty_name: "----",
   });
 
   const [slot_times, setSlotTimes] = useState([
@@ -130,37 +130,37 @@ function Feed() {
       slot_id: "D1S1",
       class_id: "ABC123",
       subject_name: "Holiday",
-      section: "----",
+      faculty_name: "----",
     },
     {
       slot_id: "D1S2",
       class_id: "ABC123",
       subject_name: "Holiday",
-      section: "----",
+      faculty_name: "----",
     },
     {
       slot_id: "D1S3",
       class_id: "ABC123",
       subject_name: "Holiday",
-      section: "----",
+      faculty_name: "----",
     },
     {
       slot_id: "D1S4",
       class_id: "ABC123",
       subject_name: "Holiday",
-      section: "----",
+      faculty_name: "----",
     },
     {
       slot_id: "D1S5",
       class_id: "ABC123",
       subject_name: "Holiday",
-      section: "----",
+      faculty_name: "----",
     },
     {
       slot_id: "D1S6",
       class_id: "ABC123",
       subject_name: "Holiday",
-      section: "----",
+      faculty_name: "----",
     },
   ]);
 
@@ -169,37 +169,37 @@ function Feed() {
       slot_id: "D1S1",
       class_id: "ABC123",
       subject_name: "Unalloted",
-      section: "ABCXYZ",
+      faculty_name: "ABCXYZ",
     },
     {
       slot_id: "D1S2",
       class_id: "ABC123",
       subject_name: "Unalloted",
-      section: "ABCXYZ",
+      faculty_name: "ABCXYZ",
     },
     {
       slot_id: "D1S3",
       class_id: "ABC123",
       subject_name: "Unalloted",
-      section: "ABCXYZ",
+      faculty_name: "ABCXYZ",
     },
     {
       slot_id: "D1S4",
       class_id: "ABC123",
       subject_name: "Unalloted",
-      section: "ABCXYZ",
+      faculty_name: "ABCXYZ",
     },
     {
       slot_id: "D1S5",
       class_id: "ABC123",
       subject_name: "Unalloted",
-      section: "ABCXYZ",
+      faculty_name: "ABCXYZ",
     },
     {
       slot_id: "D1S6",
       class_id: "ABC123",
       subject_name: "Unalloted",
-      section: "ABCXYZ",
+      faculty_name: "ABCXYZ",
     },
   ]);
 
@@ -209,37 +209,37 @@ function Feed() {
         slot_id: "D1S1",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D1S2",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D1S3",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D1S4",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D1S5",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D1S6",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
     ],
     [
@@ -247,37 +247,37 @@ function Feed() {
         slot_id: "D2S1",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D2S2",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D2S3",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D2S4",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D2S5",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D2S6",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
     ],
     [
@@ -285,37 +285,37 @@ function Feed() {
         slot_id: "D3S1",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D3S2",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D3S3",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D3S4",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D3S5",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D3S6",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
     ],
     [
@@ -323,37 +323,37 @@ function Feed() {
         slot_id: "D4S1",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D4S2",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D4S3",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D4S4",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D4S5",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D4S6",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
     ],
     [
@@ -361,37 +361,37 @@ function Feed() {
         slot_id: "D5S1",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D5S2",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D5S3",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D5S4",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D5S5",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D5S6",
         class_id: "ABC123",
         subject_name: "Unalloted",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
     ],
     [
@@ -399,37 +399,37 @@ function Feed() {
         slot_id: "D6S1",
         class_id: "ABC123",
         subject_name: "class 1",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D6S2",
         class_id: "ABC123",
         subject_name: "class 2",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D6S3",
         class_id: "ABC123",
         subject_name: "class 3",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D6S4",
         class_id: "ABC123",
         subject_name: "class 4",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D6S5",
         class_id: "ABC123",
         subject_name: "class 5",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
       {
         slot_id: "D6S6",
         class_id: "ABC123",
         subject_name: "class 1",
-        section: "ABCXYZ",
+        faculty_name: "ABCXYZ",
       },
     ],
   ]);
@@ -526,8 +526,8 @@ function Feed() {
                                 {slot.subject_name}
                               </div>
                               <div className="slot-sec">
-                                {slot.section !== "ABCXYZ"
-                                  ? slot.section
+                                {slot.faculty_name !== "ABCXYZ"
+                                  ? slot.faculty_name
                                   : "NA"}
                               </div>
                             </div>
@@ -539,7 +539,7 @@ function Feed() {
                                 {lunch_details.name}
                               </div>
                               <div className="slot-sec">
-                                {lunch_details.section}
+                                {lunch_details.faculty_name}
                               </div>
                             </div>
                           </>
@@ -555,8 +555,8 @@ function Feed() {
                               {slot.subject_name}
                             </div>
                             <div className="slot-sec">
-                              {slot.section !== "ABCXYZ"
-                                ? slot.section
+                              {slot.faculty_name !== "ABCXYZ"
+                                ? slot.faculty_name
                                 : "NA"}
                             </div>
                           </div>
@@ -566,7 +566,7 @@ function Feed() {
                       <div className="slot">
                         <div className="slot_time">{slot_times[idx]}</div>
                         <div className="slot_sub">{slot.subject_name}</div>
-                        <div className="slot-sec">{slot.section}</div>
+                        <div className="slot-sec">{slot.faculty_name}</div>
                       </div>
                     ))}
                   {/* {
@@ -576,7 +576,7 @@ function Feed() {
                           <div className="slot_time">{slot_times[idx]}</div>
                           <div className="slot_sub">{slot.subject_name}</div>
                           <div className="slot-sec">
-                            {slot.section !== "ABCXYZ" ? slot.section : "NA"}
+                            {slot.faculty_name !== "ABCXYZ" ? slot.faculty_name : "NA"}
                           </div>
                         </div>
                       ))
@@ -586,7 +586,7 @@ function Feed() {
                           <div className="slot_time">{slot_times[idx]}</div>
                           <div className="slot_sub">{slot.subject_name}</div>
                           <div className="slot-sec">
-                            {slot.section}
+                            {slot.faculty_name}
                           </div>
                         </div>
                       ))
@@ -598,7 +598,7 @@ function Feed() {
                         <div className="slot_time">09:10 - 10:10</div>
                         <div className="slot_sub">{slot.subject_name}</div>
                         <div className="slot-sec">
-                          {slot.section !== "ABCXYZ" ? slot.section : "NA"}
+                          {slot.faculty_name !== "ABCXYZ" ? slot.faculty_name : "NA"}
                         </div>
                       </div>
                     ))
@@ -690,35 +690,12 @@ function Feed() {
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
+          <Typography paragraph style={{textAlign:"center" ,marginTop:150, fontSize:90}}>         
+
+                 Student Section
+           </Typography>
           <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </Typography>
-          <Typography paragraph>
-            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-            ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-            elementum integer enim neque volutpat ac tincidunt. Ornare
-            suspendisse sed nisi lacus sed viverra tellus. Purus sit amet
-            volutpat consequat mauris. Elementum eu facilisis sed odio morbi.
-            Euismod lacinia at quis risus sed vulputate odio. Morbi tincidunt
-            ornare massa eget egestas purus viverra accumsan in. In hendrerit
-            gravida rutrum quisque non tellus orci ac. Pellentesque nec nam
-            aliquam sem et tortor. Habitant morbi tristique senectus et.
-            Adipiscing elit duis tristique sollicitudin nibh sit. Ornare aenean
-            euismod elementum nisi quis eleifend. Commodo viverra maecenas
-            accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam
-            ultrices sagittis orci a.
+
           </Typography>
         </Box>
       </Box>
@@ -762,8 +739,8 @@ function Feed() {
             <ListItem>
               <div className="slot-drawer">
                 <div className="drawer-key">
-                  Section:&nbsp;&nbsp;&nbsp;
-                  <div className="drawer-value">{selectedSlot.section}</div>
+                Faculty Name:&nbsp;&nbsp;&nbsp;
+                  <div className="drawer-value">{selectedSlot.faculty_name}</div>
                 </div>
               </div>
             </ListItem>
