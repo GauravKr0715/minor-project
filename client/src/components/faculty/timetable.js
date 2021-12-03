@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./timetable.css"
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -25,6 +26,14 @@ import Snackbar from "@mui/material/Snackbar";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { faculty_sidebar_data } from "../../environments/sidebar_data";
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import "./attendance.css";
 // import moment from "moment";
 import {
@@ -32,15 +41,30 @@ import {
   postAttendanceSheet,
 } from "../../services/faculty";
 import { Link, useRouteMatch } from "react-router-dom";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
 import Checkbox from "@mui/material/Checkbox";
 import LoadingOverlay from "react-loading-overlay";
-import Paper from "@mui/material/Paper";
+
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
+function createData(name, calories, fat, carbs, protein,six,seven ,eight) {
+  return { name, calories, fat, carbs, protein ,six,seven, eight};
+}
+
+const rows = [
+  createData('Monday', "ADBA","ACN","","ST","CNS","GROUP B CNS","GROUP A ST"),
+  createData('Tuesday', "","","","","","",""),
+  createData('Wednesday', "","","","","","",""),
+  createData('Thursday', "","","","","","",""),
+  createData('Friday', "","","","","","",""),
+  createData('Saturday', "","","","","","",""),
+
+];
+
 
 const drawerWidth = 240;
 
@@ -426,140 +450,42 @@ function Attendance() {
           </Drawer>
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             <DrawerHeader />
-            <div className="att-container">
-              <div className="options-container">
-                <div className="selector">
-                  {classes.length > 0 && (
-                    <FormControl fullWidth>
-                      <InputLabel id="class_select_label">
-                        Select Class
-                      </InputLabel>
-                      <Select
-                        labelId="class_select_label"
-                        id="class_select"
-                        value={select_label}
-                        label="Select Class"
-                        onChange={handleChange}
-                      >
-                        {classes.map((c, idx) => (
-                          <MenuItem
-                            value={c.class_id + ":" + idx}
-                          >{`${c.subject_name} [${c.section}]`}</MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  )}
-                </div>
-                <div className="updator">
-                  <StyledLoader
-                    active={submitLoad}
-                    classNamePrefix="MyLoader_"
-                    spinner
-                  >
-                    <Button
-                      variant="contained"
-                      onClick={() => {
-                        postAttendance(classes[selected_class_idx]);
-                      }}
-                      height="auto"
-                    >
-                      Update Attendance
-                    </Button>
-                  </StyledLoader>
-                </div>
-              </div>
-              <div className="list-container">
-                {classes.length > 0 ? (
-                  selected_class ? (
-                    <TableContainer
-                      sx={{
-                        backgroundColor: "#fff !important",
-                      }}
-                      component={Paper}
-                    >
-                      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                        <TableHead>
-                          <TableRow>
-                            <TableCell
-                              sx={{
-                                fontWeight: "bold !important",
-                                fontSize: "1rem !important",
-                              }}
-                            >
-                              <Checkbox
-                                color="primary"
-                                onChange={(e) => {
-                                  handleStudentAllCheck(e);
-                                }}
-                                checked={check}
-                              />
-                              Student Roll No (click to select all students)
-                            </TableCell>
-                            <TableCell
-                              sx={{
-                                fontWeight: "bold !important",
-                                fontSize: "1rem !important",
-                              }}
-                            >
-                              Student Name
-                            </TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {classes
-                            .filter((c) => c.class_id === selected_class)[0]
-                            .all_students.map((student) => (
-                              <TableRow key={student.roll_no}>
-                                <TableCell component="th" scope="row">
-                                  <Checkbox
-                                    color="primary"
-                                    onChange={(e) => {
-                                      handleStudentIndCheck(e, student.roll_no);
-                                    }}
-                                    checked={student.is_present}
-                                  />
-                                  {student.roll_no}
-                                </TableCell>
-                                <TableCell>{student.name}</TableCell>
-                              </TableRow>
-                            ))}
-                          {/* <TableRow
-                          key="somekey"
-                          sx={{
-                            "&:last-child td, &:last-child th": { border: 0 },
-                          }}
-                        >
-                          <TableCell component="th" scope="row">
-                            <Checkbox color="primary" checked={false} />
-                            GK
-                          </TableCell>
-                        </TableRow> */}
-                          {/* {rows.map((row) => (
-                        <TableRow
-                          key={row.name}
-                          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                          <TableCell component="th" scope="row">
+                           <TableContainer component={Paper} style={{marginTop:60}}>
+                  <Table className={classes.table} aria-label="simple table" style={{backgroundColor:"white"}}>
+                    <TableHead style={{fontSize:50, fontWeight:"bold"}}>
+                      <TableRow >
+                        <TableCell>   </TableCell>
+                        <TableCell align="right">09:10-10:05</TableCell>
+                        <TableCell align="right">10:05-11:00</TableCell>
+                        <TableCell align="right">Lunch-Time</TableCell>
+                        <TableCell align="right">11:30-12:25</TableCell>
+                        <TableCell align="right">12:25-01:20</TableCell>
+                        <TableCell align="right">01:20-02:15</TableCell>
+                        <TableCell align="right">02:15-03:10</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => (
+                        <TableRow key={row.name}>
+                          <TableCell component="th" scope="row" style={{fontSize:23, fontWeight:60}}>
                             {row.name}
                           </TableCell>
+                          
                           <TableCell align="right">{row.calories}</TableCell>
                           <TableCell align="right">{row.fat}</TableCell>
                           <TableCell align="right">{row.carbs}</TableCell>
                           <TableCell align="right">{row.protein}</TableCell>
+                          <TableCell align="right">{row.six}</TableCell>
+                          <TableCell align="right">{row.seven}</TableCell>
+                          <TableCell align="right">{row.eight}</TableCell>
                         </TableRow>
-                      ))} */}
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
-                  ) : (
-                    <div className="no-class">Select a class first</div>
-                  )
-                ) : (
-                  <div className="no-class">No classes available today</div>
-                )}
-              </div>
-            </div>
-          </Box>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              
+            
+            </Box>
         </Box>
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}

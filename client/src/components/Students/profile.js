@@ -450,39 +450,7 @@ function Attendance() {
           </Drawer>
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             <DrawerHeader />
-                           <TableContainer component={Paper} style={{marginTop:60}}>
-                  <Table className={classes.table} aria-label="simple table" style={{backgroundColor:"white"}}>
-                    <TableHead style={{fontSize:50, fontWeight:"bold"}}>
-                      <TableRow >
-                        <TableCell>   </TableCell>
-                        <TableCell align="right">09:10-10:05</TableCell>
-                        <TableCell align="right">10:05-11:00</TableCell>
-                        <TableCell align="right">Lunch-Time</TableCell>
-                        <TableCell align="right">11:30-12:25</TableCell>
-                        <TableCell align="right">12:25-01:20</TableCell>
-                        <TableCell align="right">01:20-02:15</TableCell>
-                        <TableCell align="right">02:15-03:10</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rows.map((row) => (
-                        <TableRow key={row.name}>
-                          <TableCell component="th" scope="row" style={{fontSize:23, fontWeight:60}}>
-                            {row.name}
-                          </TableCell>
-                          
-                          <TableCell align="right">{row.calories}</TableCell>
-                          <TableCell align="right">{row.fat}</TableCell>
-                          <TableCell align="right">{row.carbs}</TableCell>
-                          <TableCell align="right">{row.protein}</TableCell>
-                          <TableCell align="right">{row.six}</TableCell>
-                          <TableCell align="right">{row.seven}</TableCell>
-                          <TableCell align="right">{row.eight}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+            
               
             
             </Box>

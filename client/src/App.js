@@ -22,6 +22,8 @@ import AdminStudent from "./components/Admin/student/Student"
 import AdminFaculty from "./components/Admin/faculty/Faculty"
 import FacultyTT from "./components/Faculty/timetable"
 import StudentTT from "./components/Students/Timetable"
+import FacultyProfile from "./components/Faculty/profile"
+import StudentProfile from "./components/Students/profile"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 /* import { library } from "@fontawesome/fontawesome-svg-core";
@@ -71,6 +73,10 @@ function App() {
                   {/* <Authorization /> */}
                   <FacultyTT />
                 </Route>
+                <Route path={`${url}/profile`} exact >
+                  {/* <Authorization /> */}
+                  <FacultyProfile />
+                </Route>
               </>
             )}>
           </Route>
@@ -98,6 +104,10 @@ function App() {
                   {/* <Authorization /> */}
                   <StudentTT />
                 </Route>
+                <Route path={`${url}/profile`} exact >
+                {/* <Authorization /> */}
+                <StudentProfile />
+              </Route>
             </>
           )}>
         </Route>
